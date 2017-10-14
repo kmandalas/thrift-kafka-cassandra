@@ -1,5 +1,9 @@
 # Thrift-Kafka-Cassandra
 
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/thrift-kafka-cassandra.jpg "diagram")
+
+
 ### Binary Production
 Execute from the root folder
 `mvn clean package`
