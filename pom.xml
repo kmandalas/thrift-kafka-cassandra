@@ -16,7 +16,9 @@
     </modules>
 
 
-    <description>TODO</description>
+    <description>POC application using thrift, kafka and cassandra. A thrift-client sends random generated messages
+    to a thrift server. The thrift server sends the received messages to a kafka topic. This kafka topic is consumed
+    by a kafka consumer that persists those messages to the cassandra DB.</description>
 
     <properties>
         <kafka.version>1.3.0.RELEASE</kafka.version>
