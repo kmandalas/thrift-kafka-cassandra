@@ -2,18 +2,18 @@
 
 ### Binary Production
 Execute from the root folder
-mvn clean package
+`mvn clean package`
 
 ### Modules
 
 #### thrift-server
-Start: cd thriftserver && ./run.sh (or cd thriftserver && mvn spring-boot:run)
+Start: `cd thriftserver && ./run.sh` (or `cd thriftserver && mvn spring-boot:run`)
 
 #### kafka-consumer
-Start: cd kafkaconsumer && ./run.sh (or cd kafkaconsumer && mvn spring-boot:run)
+Start: `cd kafkaconsumer && ./run.sh` (or `cd kafkaconsumer && mvn spring-boot:run`)
 
 #### thrift-client
-Start: cd thriftclient && ./run.sh (or cd thriftclient && mvn spring-boot:run)
+Start: `cd thriftclient && ./run.sh` (or `cd thriftclient && mvn spring-boot:run`)
 
 #### thrift-generated
 This module is imported via maven dependency injection to the other modules since the generated class (ThriftMessage) is the 'glue' between them.
