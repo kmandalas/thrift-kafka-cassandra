@@ -8,6 +8,10 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+/**
+ * KafkaConsumer listens to the given 'consume.topic' for {@link ThriftMessage thriftMessages} and persists them via
+ * {@link MessageService messageService}.
+ */
 @Component
 public class KafkaConsumer {
 
@@ -19,6 +23,8 @@ public class KafkaConsumer {
 
     @KafkaListener(topics = "${consume.topic}", group = "${consumer.group.id}")
     public void consume(ThriftMessage message) {
+
+        // Convert and save message.
         messageService.save(messageConverter.convert(message));
     }
 }

@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+/**
+ * ThriftClientApp is the entry point of thrift-client application.
+ */
 @SpringBootApplication(scanBasePackages = {"org.mvarvarigos.thriftkafkacassandra.client"})
 @EnableScheduling
 public class ThriftClientApp implements CommandLineRunner {

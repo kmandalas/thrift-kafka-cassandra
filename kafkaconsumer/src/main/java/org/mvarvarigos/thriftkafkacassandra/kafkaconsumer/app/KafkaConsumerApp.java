@@ -5,6 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
+
+/**
+ * KafkaConsumerApp is the entry point of kafka-consumer application.
+ */
 @SpringBootApplication(scanBasePackages = {"org.mvarvarigos.thriftkafkacassandra.kafkaconsumer"})
 @EnableCassandraRepositories("org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.repository.cassandra")
 public class KafkaConsumerApp implements CommandLineRunner {

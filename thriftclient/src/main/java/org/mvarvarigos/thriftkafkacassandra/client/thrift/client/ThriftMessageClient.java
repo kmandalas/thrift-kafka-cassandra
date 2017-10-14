@@ -12,6 +12,10 @@ import org.mvarvarigos.thrift.impl.ThriftMessage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * ThriftMessageClient exposes functionality to a remote server via a thrift generated
+ * {@link MessageService.Client client}.
+ */
 @Component
 @Slf4j
 public class ThriftMessageClient {
@@ -22,6 +26,12 @@ public class ThriftMessageClient {
     @Value("${thrift.server.port}")
     private int serverPort;
 
+    /**
+     * Calls {@link MessageService.Client#save(ThriftMessage)} to the remote server.
+     *
+     * @param thriftMessage the remote call argument
+     * @throws TException when the remote server is unreachable
+     */
     public void send(final ThriftMessage thriftMessage) throws TException {
         TTransport transport;
 
@@ -31,11 +41,11 @@ public class ThriftMessageClient {
         TProtocol protocol = new TBinaryProtocol(transport);
         MessageService.Client client = new MessageService.Client(protocol);
 
-        log.trace("calling remote method save >>");
+        log.debug("calling remote method save >>");
 
         client.save(thriftMessage);
 
-        log.trace("<< remote method save done");
+        log.debug("<< remote method save done");
 
         transport.close();
 

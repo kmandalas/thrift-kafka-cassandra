@@ -11,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * MessageServer listens to a configurable port for incoming calls from thrift clients and delegates them to the
+ * {@link MessageService.Iface messageService}.
+ */
 @Component
 @Slf4j
 public class MessageServer {
@@ -23,6 +27,11 @@ public class MessageServer {
 
     private TServer server;
 
+    /**
+     * Starts the server.
+     *
+     * @throws TTransportException in case of configuration or network error.
+     */
     public void start() throws TTransportException {
         final TServerTransport serverTransport = new TServerSocket(serverPort);
         final TServer.Args tsArgs = new TServer.Args(serverTransport)
@@ -34,6 +43,9 @@ public class MessageServer {
         server.serve();
     }
 
+    /**
+     * Stops the server if started.
+     */
     public void stop() {
         if (server != null && server.isServing()) {
             log.debug("<< stopping the server");

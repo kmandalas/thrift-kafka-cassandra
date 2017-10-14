@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PreDestroy;
 
+/**
+ * ThriftServerApp is the entry point of thrift-server application.
+ */
 @SpringBootApplication(scanBasePackages = {"org.mvarvarigos.thriftkafkacassandra.server"})
 public class ThriftServerApp implements CommandLineRunner {
 
@@ -20,9 +23,13 @@ public class ThriftServerApp implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
+        // MessageServer initialization.
         messageServer.start();
     }
 
+    /**
+     * Clean up actions.
+     */
     @PreDestroy
     public void cleanup() {
         messageServer.stop();

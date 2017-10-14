@@ -3,6 +3,7 @@ package org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.kafka.config;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.mvarvarigos.thrift.impl.ThriftMessage;
+import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.kafka.consumer.KafkaConsumer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,9 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * KafkaConsumerConfig initializes the needed beans for {@link KafkaConsumer} bootstrap.
+ */
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {

@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.Calendar;
 import java.util.UUID;
 
+/**
+ * {@inheritDoc}
+ */
 @Service
 @Slf4j
 public class ThriftMessageSenderServiceImpl implements ThriftMessageSenderService {
@@ -22,6 +25,9 @@ public class ThriftMessageSenderServiceImpl implements ThriftMessageSenderServic
     @Autowired
     ThriftMessageClient thriftMessageClient;
 
+    /**
+     * {@inheritDoc}
+     */
     @Scheduled(fixedRateString = "${millis.between.messages}")
     public void sendRandomMessage() {
         final ThriftMessage message = generateRandomMessage();

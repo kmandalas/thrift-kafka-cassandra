@@ -8,9 +8,15 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * MessageConverter converts a {@link ThriftMessage thriftMessage} to a {@link Message message}.
+ */
 @Component
 public class MessageConverter implements Converter<ThriftMessage, Message> {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Message convert(ThriftMessage source) {
         return Message.builder()

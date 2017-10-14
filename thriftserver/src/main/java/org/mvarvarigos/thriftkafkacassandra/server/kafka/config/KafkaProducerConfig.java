@@ -3,6 +3,7 @@ package org.mvarvarigos.thriftkafkacassandra.server.kafka.config;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.mvarvarigos.thrift.impl.ThriftMessage;
+import org.mvarvarigos.thriftkafkacassandra.server.kafka.producer.KafkaProducer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,9 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * KafkaProducerConfig initializes the needed beans for {@link KafkaProducer} bootstrap.
+ */
 @Configuration()
 @EnableKafka
 public class KafkaProducerConfig {

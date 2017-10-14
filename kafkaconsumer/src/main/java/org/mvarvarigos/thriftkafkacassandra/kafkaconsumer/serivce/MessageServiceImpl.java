@@ -6,6 +6,9 @@ import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.repository.cassandra.M
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * {@inheritDoc}
+ */
 @Service
 @Slf4j
 public class MessageServiceImpl implements MessageService {
@@ -13,6 +16,9 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     MessageRepository messageRepository;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void save(Message message) {
         log.trace("Persisting message: [{}]", message);

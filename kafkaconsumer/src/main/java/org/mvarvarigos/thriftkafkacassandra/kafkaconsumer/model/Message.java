@@ -10,6 +10,9 @@ import org.springframework.data.cassandra.mapping.Table;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * Message represents the cassandra DB message table.
+ */
 @Table
 @Getter
 @Builder
