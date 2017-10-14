@@ -20,15 +20,12 @@ import java.util.UUID;
 public class Message {
 
     @PrimaryKey
-    private UUID id;
+    private MessageKey messageId;
 
     @Column("v")
     private short version;
 
     @Column("m")
     private String message;
-
-    @Column("d")
-    private Date time;
 
 }
