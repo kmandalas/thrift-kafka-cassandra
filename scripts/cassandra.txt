@@ -1,0 +1,11 @@
+CREATE KEYSPACE IF NOT EXISTS EventSpace
+WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }
+AND DURABLE_WRITES =  false;
+
+CREATE TABLE EventSpace.message (
+  id uuid,
+  m text,
+  v int,
+  d timestamp,
+  PRIMARY KEY (id, d)
+) with CLUSTERING ORDER BY (d DESC);
