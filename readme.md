@@ -1,53 +1,35 @@
-Thrift-Kafka-Cassandra
+# Thrift-Kafka-Cassandra
 
-GitHub repo
+![alt text](https://github.com/adam-p/markdown-here/raw/master/thrift-kafka-cassandra.jpg "diagram")
 
-Binary Production
+
+### Binary Production
 Execute from the root folder
-mvn clean package
+`mvn clean package`
 
-Modules
+### Modules
 
-thrift-server
-Start: cd thriftserver && ./run.sh (or cd thriftserver && mvn spring-boot:run)
+#### thrift-server
+Start: `cd thriftserver && ./run.sh` (or `cd thriftserver && mvn spring-boot:run`)
 
-kafka-consumer
-Start: cd kafkaconsumer && ./run.sh (or cd kafkaconsumer && mvn spring-boot:run)
+#### kafka-consumer
+Start: `cd kafkaconsumer && ./run.sh` (or `cd kafkaconsumer && mvn spring-boot:run`)
 
-thrift-client
-Start: cd thriftclient && ./run.sh (or cd thriftclient && mvn spring-boot:run)
+#### thrift-client
+Start: `cd thriftclient && ./run.sh` (or `cd thriftclient && mvn spring-boot:run`)
 
-thrift-generated
-This module is imported via maven dependency injection to the other modules since the generated class (ThriftMessage) is the 'glue' between them.
+#### thrift-generated
+This module is imported via maven dependency injection to the other modules since the generated class (_ThriftMessage_) is the 'glue' between them.
 If you have thrift installed (version 0.9.1) you can un-comment the relevant section in the pom.xml and set the thrift executable path, so the thrift related classes are regenerated.
 
-Additional information:
-Kafka (kafka.txt)
-I have included kafka and zookeeper startup (folder scripts) as long as the communication topic creation. Keep in mind that I run kafka directly from the binaries with the included zookeeper server.
-
-Cassandra (cassandra.txt)
-Included you will find namespace and message table creation queries (folder scripts).
-
-MISCELLANEOUS
-Mostly the configuration used is the default and some configurable properties are set explicity to default values (eg: kafka servers).
-For boilerplate code generation the library lombok is used.
+### MISCELLANEOUS
+Mostly the configuration used is the default and some configurable properties are set explicity to default values (eg: kafka servers).<br>
+For boilerplate code generation the library lombok is used.<br>
 List of configurable properties via pom files:
-log.level (loggers level)
-kafka.server (producer consumer kafka connection)
-consume.topic (consumer kafka topic)
-consumer.group.id (consumer group id)
-produce.topic (producer kafka topic)
-millis.between.messages (a new random message is sent)
-thrift.message.version (thrift message version - for now 1)
-
-VERSIONS
-java: 8
-thrift: 0.9.1
-kafka: 2.11-0.11.0.1
-cassandra: 3.11.1
-
-TOOLS:
-OS: ubuntu 16.04 (virtual machine)
-IDE: intellij community edition
-Maven: 3.3.9
-
+* _log.level_ (loggers level)
+* _kafka.server_ (producer consumer kafka connection)
+* _consume.topic_ (consumer kafka topic)
+* _consumer.group.id_ (consumer group id)
+* _produce.topic_ (producer kafka topic)
+* _millis.between.messages_ (a new random message is sent)
+* _thrift.message.version_ (thrift message version - for now 1)
