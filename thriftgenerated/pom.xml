@@ -37,12 +37,13 @@
                     <outputDirectory>src/main/java</outputDirectory>
                 </configuration>
                 <executions>
-                    <execution>
-                        <id>thrift-sources</id>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
+                    <!-- Uncomment if thrift is installed and change thrift.executable property accordingly. -->
+                    <!--<execution>-->
+                        <!--<id>thrift-sources</id>-->
+                        <!--<goals>-->
+                            <!--<goal>compile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
                 </executions>
             </plugin>
         </plugins>
