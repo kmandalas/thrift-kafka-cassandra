@@ -2,7 +2,7 @@ package org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.kafka.consumer;
 
 import org.mvarvarigos.thrift.impl.ThriftMessage;
 import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.model.Message;
-import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.serivce.MessageService;
+import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.kafka.annotation.KafkaListener;

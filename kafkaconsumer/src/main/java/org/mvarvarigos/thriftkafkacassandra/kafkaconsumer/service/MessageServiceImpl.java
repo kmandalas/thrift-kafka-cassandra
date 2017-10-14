@@ -1,4 +1,4 @@
-package org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.serivce;
+package org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.model.Message;

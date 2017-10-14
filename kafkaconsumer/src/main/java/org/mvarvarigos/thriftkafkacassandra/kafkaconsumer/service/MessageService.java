@@ -1,4 +1,4 @@
-package org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.serivce;
+package org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.service;
 
 import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.model.Message;
 import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.repository.cassandra.MessageRepository;
