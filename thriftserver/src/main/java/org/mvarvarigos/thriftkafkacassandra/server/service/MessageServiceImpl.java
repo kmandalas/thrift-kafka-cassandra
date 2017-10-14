@@ -24,20 +24,19 @@ public class MessageServiceImpl implements MessageService.Iface {
     @Override
     public void save(ThriftMessage message) throws InvalidOperationException, TException {
 
-        LOGGER.trace(message.toString());
-
         ListenableFuture<SendResult<String, ThriftMessage>> future = sender.send(message);
 
         future.addCallback(new ListenableFutureCallback<SendResult<String, ThriftMessage>>() {
             @Override
             public void onFailure(Throwable ex) {
-                LOGGER.error("failed: {}", message);
+                LOGGER.error("Sending to kafka failed for message: [{}]", message);
             }
 
             @Override
             public void onSuccess(SendResult<String, ThriftMessage> result) {
-                LOGGER.debug("sent: {}", message);
+                LOGGER.trace("Message sent successfully to kafka: [{}]", message);
             }
         });
+
     }
 }

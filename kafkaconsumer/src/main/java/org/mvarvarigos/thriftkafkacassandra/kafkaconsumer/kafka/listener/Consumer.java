@@ -23,7 +23,6 @@ public class Consumer {
 
     @KafkaListener(topics = "${consume.topic}", group = "${consumer.group.id}")
     public void consume(ThriftMessage message) {
-        LOGGER.debug(message.toString());
         messageService.save(messageConverter.convert(message));
     }
 }

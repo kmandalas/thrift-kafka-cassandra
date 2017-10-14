@@ -18,7 +18,7 @@ public class Sender {
   private KafkaTemplate<String, ThriftMessage> kafkaTemplate;
 
   public ListenableFuture<SendResult<String, ThriftMessage>> send(ThriftMessage message) {
-    LOGGER.debug("sending payload='{}'", message);
+    LOGGER.debug("sending payload: [{}]", message);
     return kafkaTemplate.sendDefault(message);
   }
 }

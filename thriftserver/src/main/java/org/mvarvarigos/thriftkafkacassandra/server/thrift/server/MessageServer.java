@@ -6,24 +6,23 @@ import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TServerTransport;
 import org.apache.thrift.transport.TTransportException;
 import org.mvarvarigos.thrift.impl.MessageService;
-import org.mvarvarigos.thriftkafkacassandra.server.service.MessageServiceImpl;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MessageServiceServer {
+public class MessageServer {
 
-    private static Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MessageServiceServer.class);
-
-    private TServer server;
+    private static Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MessageServer.class);
 
     @Value("${thrift.server.port}")
     private int serverPort;
 
     @Autowired
     MessageService.Iface messageService;
+
+    private TServer server;
 
     public void start() throws TTransportException {
         final TServerTransport serverTransport = new TServerSocket(serverPort);

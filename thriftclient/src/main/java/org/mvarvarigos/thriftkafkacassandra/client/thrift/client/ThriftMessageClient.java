@@ -23,27 +23,22 @@ public class ThriftMessageClient {
     @Value("${thrift.server.port}")
     private int serverPort;
 
-    public void send(final ThriftMessage thriftMessage) {
-        try {
-            TTransport transport;
+    public void send(final ThriftMessage thriftMessage) throws TException {
+        TTransport transport;
 
-            transport = new TSocket(serverAddress, serverPort);
-            transport.open();
+        transport = new TSocket(serverAddress, serverPort);
+        transport.open();
 
-            TProtocol protocol = new TBinaryProtocol(transport);
-            MessageService.Client client = new MessageService.Client(protocol);
+        TProtocol protocol = new TBinaryProtocol(transport);
+        MessageService.Client client = new MessageService.Client(protocol);
 
-            LOGGER.debug("calling remote method save >>");
+        LOGGER.trace("calling remote method save >>");
 
-            client.save(thriftMessage);
+        client.save(thriftMessage);
 
-            LOGGER.debug("<< remote method save done");
+        LOGGER.trace("<< remote method save done");
 
-            transport.close();
-
-        } catch (TException e) {
-            e.printStackTrace();
-        }
+        transport.close();
 
     }
 }

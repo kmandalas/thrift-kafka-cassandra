@@ -1,6 +1,6 @@
 package org.mvarvarigos.thriftkafkacassandra.server.app;
 
-import org.mvarvarigos.thriftkafkacassandra.server.thrift.server.MessageServiceServer;
+import org.mvarvarigos.thriftkafkacassandra.server.thrift.server.MessageServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ import javax.annotation.PreDestroy;
 public class ThriftServerApp implements CommandLineRunner {
 
     @Autowired
-    MessageServiceServer messageServiceServer;
+    MessageServer messageServer;
 
     public static void main(String[] args) {
         SpringApplication.run(ThriftServerApp.class, args);
@@ -20,11 +20,11 @@ public class ThriftServerApp implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        messageServiceServer.start();
+        messageServer.start();
     }
 
     @PreDestroy
     public void cleanup() {
-        messageServiceServer.stop();
+        messageServer.stop();
     }
 }
