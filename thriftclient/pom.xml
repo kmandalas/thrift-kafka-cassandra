@@ -20,7 +20,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <millis.between.messages>10</millis.between.messages>
-        <thrift.message.version>10</thrift.message.version>
+        <thrift.message.version>1</thrift.message.version>
+        <log.level>INFO</log.level>
     </properties>
 
     <dependencies>
