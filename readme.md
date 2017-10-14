@@ -1,6 +1,5 @@
 # Thrift-Kafka-Cassandra
 
-Inline-style: 
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/thrift-kafka-cassandra.jpg "diagram")
 
 
