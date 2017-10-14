@@ -1,6 +1,6 @@
 # Thrift-Kafka-Cassandra
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/thrift-kafka-cassandra.jpg "diagram")
+![alt text](https://github.com/maenolis/thrift-kafka-cassandra/raw/master/thrift-kafka-cassandra.jpg "diagram")
 
 
 ### Binary Production
