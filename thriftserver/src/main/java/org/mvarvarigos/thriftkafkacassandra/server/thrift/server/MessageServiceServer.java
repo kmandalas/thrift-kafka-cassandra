@@ -6,7 +6,7 @@ import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TServerTransport;
 import org.apache.thrift.transport.TTransportException;
 import org.mvarvarigos.thrift.impl.MessageService;
-import org.mvarvarigos.thriftkafkacassandra.server.thrift.service.MessageServiceImpl;
+import org.mvarvarigos.thriftkafkacassandra.server.service.MessageServiceImpl;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
