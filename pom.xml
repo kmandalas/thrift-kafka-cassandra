@@ -12,6 +12,7 @@
         <module>thriftserver</module>
         <module>thriftclient</module>
         <module>thriftgenerated</module>
+        <module>kafkaconsumer</module>
     </modules>
 
     <dependencyManagement>
@@ -29,13 +30,27 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-autoconfigure</artifactId>
-                <version>RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.mvarvarigos</groupId>
                 <artifactId>thrift-generated</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>1.3.0.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.9.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-cassandra</artifactId>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
