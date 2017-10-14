@@ -1,6 +1,7 @@
 package org.mvarvarigos.thriftkafkacassandra.client.thrift.client;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
@@ -8,14 +9,12 @@ import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.mvarvarigos.thrift.impl.MessageService;
 import org.mvarvarigos.thrift.impl.ThriftMessage;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class ThriftMessageClient {
-
-    private static Logger LOGGER = org.slf4j.LoggerFactory.getLogger(ThriftMessageClient.class);
 
     @Value("${thrift.server.address}")
     private String serverAddress;
@@ -32,11 +31,11 @@ public class ThriftMessageClient {
         TProtocol protocol = new TBinaryProtocol(transport);
         MessageService.Client client = new MessageService.Client(protocol);
 
-        LOGGER.trace("calling remote method save >>");
+        log.trace("calling remote method save >>");
 
         client.save(thriftMessage);
 
-        LOGGER.trace("<< remote method save done");
+        log.trace("<< remote method save done");
 
         transport.close();
 

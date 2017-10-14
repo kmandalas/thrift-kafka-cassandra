@@ -5,8 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import javax.annotation.Resources;
-
 @SpringBootApplication(scanBasePackages = {"org.mvarvarigos.thriftkafkacassandra.client"})
 @EnableScheduling
 public class ThriftClientApp implements CommandLineRunner {

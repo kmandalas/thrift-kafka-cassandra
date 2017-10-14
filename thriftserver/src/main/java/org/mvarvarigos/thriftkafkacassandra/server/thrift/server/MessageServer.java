@@ -1,20 +1,19 @@
 package org.mvarvarigos.thriftkafkacassandra.server.thrift.server;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.thrift.server.TServer;
 import org.apache.thrift.server.TSimpleServer;
 import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TServerTransport;
 import org.apache.thrift.transport.TTransportException;
 import org.mvarvarigos.thrift.impl.MessageService;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class MessageServer {
-
-    private static Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MessageServer.class);
 
     @Value("${thrift.server.port}")
     private int serverPort;
@@ -30,14 +29,14 @@ public class MessageServer {
                 .processor(new MessageService.Processor<>(messageService));
         server = new TSimpleServer(tsArgs);
 
-        LOGGER.debug("starting the server >>");
+        log.debug("starting the server >>");
 
         server.serve();
     }
 
     public void stop() {
         if (server != null && server.isServing()) {
-            LOGGER.debug("<< stopping the server");
+            log.debug("<< stopping the server");
 
             server.stop();
         }
