@@ -16,17 +16,17 @@ Start: `cd kafkaconsumer && ./run.sh` (or `cd kafkaconsumer && mvn spring-boot:r
 Start: `cd thriftclient && ./run.sh` (or `cd thriftclient && mvn spring-boot:run`)
 
 #### thrift-generated
-This module is imported via maven dependency injection to the other modules since the generated class (ThriftMessage) is the 'glue' between them.
+This module is imported via maven dependency injection to the other modules since the generated class (_ThriftMessage_) is the 'glue' between them.
 If you have thrift installed (version 0.9.1) you can un-comment the relevant section in the pom.xml and set the thrift executable path, so the thrift related classes are regenerated.
 
 ### MISCELLANEOUS
 Mostly the configuration used is the default and some configurable properties are set explicity to default values (eg: kafka servers).<br>
 For boilerplate code generation the library lombok is used.<br>
 List of configurable properties via pom files:
-* log.level (loggers level)
-* kafka.server (producer consumer kafka connection)
-* consume.topic (consumer kafka topic)
-* consumer.group.id (consumer group id)
-* produce.topic (producer kafka topic)
-* millis.between.messages (a new random message is sent)
-* thrift.message.version (thrift message version - for now 1)
+* _log.level_ (loggers level)
+* _kafka.server_ (producer consumer kafka connection)
+* _consume.topic_ (consumer kafka topic)
+* _consumer.group.id_ (consumer group id)
+* _produce.topic_ (producer kafka topic)
+* _millis.between.messages_ (a new random message is sent)
+* _thrift.message.version_ (thrift message version - for now 1)
