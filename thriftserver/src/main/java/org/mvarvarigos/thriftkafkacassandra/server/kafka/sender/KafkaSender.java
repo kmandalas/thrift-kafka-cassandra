@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 
 @Component
-public class Sender {
+public class KafkaSender {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Sender.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(KafkaSender.class);
 
   @Autowired
   private KafkaTemplate<String, ThriftMessage> kafkaTemplate;

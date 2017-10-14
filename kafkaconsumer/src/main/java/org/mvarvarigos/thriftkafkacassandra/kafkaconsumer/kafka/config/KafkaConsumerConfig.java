@@ -32,15 +32,16 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, consumerGroupId);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        DefaultKafkaConsumerFactory<String, ThriftMessage> factory = new DefaultKafkaConsumerFactory<>(props);
-        factory.setValueDeserializer(new JsonDeserializer<>(ThriftMessage.class));
-        return factory;
+        DefaultKafkaConsumerFactory<String, ThriftMessage> consumerFactory = new DefaultKafkaConsumerFactory<>(props);
+        consumerFactory.setValueDeserializer(new JsonDeserializer<>(ThriftMessage.class));
+        return consumerFactory;
     }
  
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, ThriftMessage> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, ThriftMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        return factory;
+        ConcurrentKafkaListenerContainerFactory<String, ThriftMessage> containerFactory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        containerFactory.setConsumerFactory(consumerFactory());
+        return containerFactory;
     }
 }

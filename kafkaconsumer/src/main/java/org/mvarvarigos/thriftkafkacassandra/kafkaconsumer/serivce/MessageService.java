@@ -4,6 +4,6 @@ import org.mvarvarigos.thriftkafkacassandra.kafkaconsumer.model.Message;
 
 public interface MessageService {
 
-    public void save(Message message);
+    void save(Message message);
 
 }

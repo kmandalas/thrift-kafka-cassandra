@@ -6,7 +6,6 @@ import org.mvarvarigos.thrift.impl.ThriftMessage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -32,7 +31,6 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-
         return props;
     }
 
@@ -43,9 +41,9 @@ public class KafkaProducerConfig {
 
     @Bean
     public KafkaTemplate<String, ThriftMessage> kafkaTemplate() {
-        final KafkaTemplate<String, ThriftMessage> template = new KafkaTemplate<>(producerFactory());
-        template.setDefaultTopic(defaultTopic);
-        return template;
+        final KafkaTemplate<String, ThriftMessage> kafkaTemplate = new KafkaTemplate<>(producerFactory());
+        kafkaTemplate.setDefaultTopic(defaultTopic);
+        return kafkaTemplate;
     }
 
 }
